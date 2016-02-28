@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>active</title>
-	<meta http-equiv="refresh" content="30">
+	<title>Land Leg Client v2.0</title>
 	<style type="text/css">*{font-family: consolas;}</style>
 </head>
 <body align="center">
