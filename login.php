@@ -50,8 +50,7 @@ function login($token)
 		"mac" => MAC,
 		"iswifi" => WIFI2,
 		"timestamp" => TIME,
-		"authenticator" => $auth,
-		"iswifi" => WIFI
+		"authenticator" => $auth
 		)
 	);
 	return $msg = list($returnCode, $returnContent) = post_j($url, $jsonStr_m);
