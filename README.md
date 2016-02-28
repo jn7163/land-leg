@@ -8,6 +8,10 @@ Author: [XenK0u](http://henbukexue.science)
 
 # update log
 
+## v2.1(2016-02-28 15:15)
+
+- add mobile protocol,no more activeｸﾞｯ!(๑•̀ㅂ•́)و✧
+
 ## v2.0(2016-02-28)
 
 - timestamp&authenticator is alive!_(•̀ω•́ 」∠)_
@@ -20,8 +24,9 @@ Author: [XenK0u](http://henbukexue.science)
 1. edit ```conf.php```
 2. open ```login.php```
 3. open ```index.php```
-4. keep ```index.php``` open
-5. enjoy
+4. close all browser even apache(maybe it will work all day_(:D)∠)_)
+5. enjoy(I guess)
+6. Chinatelecom kick your ass? GO TO STEP2.
 
 # todo
 
