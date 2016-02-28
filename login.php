@@ -41,7 +41,20 @@ function login($token)
 		"iswifi" => WIFI
 		)
 	);
-	return $msg = list($returnCode, $returnContent) = post_j($url, $jsonStr);
+	$jsonStr_m = json_encode(array(
+		"username" => U,
+		"password" => P,
+		"verificationcode" => "",
+		"clientip" => CLINENTIP,
+		"nasip" => NASIP,
+		"mac" => MAC,
+		"iswifi" => WIFI2,
+		"timestamp" => TIME,
+		"authenticator" => $auth,
+		"iswifi" => WIFI
+		)
+	);
+	return $msg = list($returnCode, $returnContent) = post_j($url, $jsonStr_m);
 }
 
 function logout()
@@ -74,7 +87,17 @@ function challenge()
 		"authenticator" => $auth
 		)
 	);
-	$token = list($returnCode, $returnContent) = post_j($url, $jsonStr);
+	$jsonStr_m = json_encode(array(
+		"username" => U,
+		"clientip" => CLINENTIP,
+		"nasip" => NASIP,
+		"mac" => MAC,
+		"iswifi" => WIFI2,
+		"timestamp" => TIME,
+		"authenticator" => $auth
+		)
+	);
+	$token = list($returnCode, $returnContent) = post_j($url, $jsonStr_m);
 	$token_obj = json_decode($token['1']);
 	return $token_obj->{'challenge'};
 }
