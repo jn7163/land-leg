@@ -30,7 +30,7 @@ Author: [XenK0u](http://henbukexue.science)
 
 # todo
 
-- try mobile version for no active
+- ~~try mobile version for no active~~
 
 # license
 
