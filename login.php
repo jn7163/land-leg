@@ -102,7 +102,7 @@ function challenge()
 }
 
 
-if(isset($_POST['submit'])){
+if(isset($_POST['s'])){
 	if($_POST['s'] == 'login'){
 		$msg = login(challenge());
 	}
@@ -113,11 +113,9 @@ if(isset($_POST['submit'])){
 
 require_once 'view.php';
 ?>
-<a href="index.php">active</a>
 <form action="" method="post">
-	<input type="radio" name="s" value="login" checked>login
-	<input type="radio" name="s" value="logout">logout
-	<br>
-	<input type="submit" name="submit" value="DO IT">
+	<input type="submit" name="s" value="login">
+	<input type="submit" name="s" value="logout">
+	<input type="button" value="active" onclick="window.location.href='index.php'">
 </form>
 <?php if(isset($msg)) echo '<p style="color:red"><i>Msg: '.$msg[1].'</i></p>'; ?>
