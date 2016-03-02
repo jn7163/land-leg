@@ -30,17 +30,6 @@ function login($token)
 	$auth = strtoupper(md5($str));
 
 	$url = "http://enet.10000.gd.cn:10001/client/login";	
-	$jsonStr = json_encode(array(
-		"username" => U,
-		"password" => P,
-		"clientip" => CLINENTIP,
-		"nasip" => NASIP,
-		"mac" => MAC,
-		"timestamp" => TIME,
-		"authenticator" => $auth,
-		"iswifi" => WIFI
-		)
-	);
 	$jsonStr_m = json_encode(array(
 		"username" => U,
 		"password" => P,
@@ -77,15 +66,6 @@ function challenge()
 	$str = CLINENTIP . NASIP . MAC . TIME . SECRET;
 	$auth = strtoupper(md5($str));
 	$url = "http://enet.10000.gd.cn:10001/client/challenge";
-	$jsonStr = json_encode(array(
-		"username" => U,
-		"clientip" => CLINENTIP,
-		"nasip" => NASIP,
-		"mac" => MAC,
-		"timestamp" => TIME,
-		"authenticator" => $auth
-		)
-	);
 	$jsonStr_m = json_encode(array(
 		"username" => U,
 		"clientip" => CLINENTIP,
