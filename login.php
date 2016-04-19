@@ -6,26 +6,24 @@
  */
 require_once 'conf.php';
 
-function post_j($url, $jsonStr)
-{
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_POST, 1);
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonStr);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-      'Content-Type: application/json; charset=utf-8',
-      'Content-Length: ' . strlen($jsonStr)
-    )
-  );
-  $response = curl_exec($ch);
-  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+function post_j($url, $jsonStr) {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonStr);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Content-Type: application/json; charset=utf-8',
+		'Content-Length: ' . strlen($jsonStr)
+		)
+	);
+	$response = curl_exec($ch);
+	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-  return array($httpCode, $response);
+	return array($httpCode, $response);
 }
 
-function login($token)
-{
+function login($token) {
 	$str = CLINENTIP . NASIP . MAC . TIME . $token . SECRET;
 	$auth = strtoupper(md5($str));
 
@@ -45,8 +43,7 @@ function login($token)
 	return $msg = list($returnCode, $returnContent) = post_j($url, $jsonStr_m);
 }
 
-function logout()
-{
+function logout() {
 	$str = CLINENTIP . NASIP . MAC . TIME . SECRET;
 	$auth = strtoupper(md5($str));
 	$url = "http://enet.10000.gd.cn:10001/client/logout";
@@ -61,8 +58,7 @@ function logout()
 	return $msg = list($returnCode, $returnContent) = post_j($url, $jsonStr);
 }
 
-function challenge()
-{
+function challenge() {
 	$str = CLINENTIP . NASIP . MAC . TIME . SECRET;
 	$auth = strtoupper(md5($str));
 	$url = "http://enet.10000.gd.cn:10001/client/challenge";
@@ -82,11 +78,11 @@ function challenge()
 }
 
 
-if(isset($_POST['s'])){
-	if($_POST['s'] == 'login'){
+if(isset($_POST['s'])) {
+	if($_POST['s'] == 'login') {
 		$msg = login(challenge());
 	}
-	else if($_POST['s'] == 'logout'){
+	else if($_POST['s'] == 'logout') {
 		$msg = logout();
 	}
 }
