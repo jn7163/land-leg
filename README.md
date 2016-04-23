@@ -34,5 +34,6 @@ Author: [XenK0u](http://henbukexue.science)
 
 # license
 
+- MIT
 - hold my beautiful name(✿◡‿◡)
 - only available for study
